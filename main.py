@@ -45,11 +45,6 @@ fig = px.histogram(data, x='MedHouseValue', nbins=50, title="Distribution of Hou
 correlations = data.corr()['MedHouseValue'].drop('MedHouseValue')
 top_features = correlations.abs().sort_values(ascending=False).head(2).index.tolist()
 
-# Plot scatter plots with trendline
-#for feature in top_features:
- #   fig = px.scatter(data, x=feature, y='MedHouseValue', trendline="ols",
-  #                   title=f"{feature} vs House Price")
-   # fig.show()
 
 import seaborn as sns
 

@@ -1,48 +1,115 @@
-# 🏠 California House Price Predictor
+# California House Price Predictor (ML + Streamlit)
 
-A simple yet powerful machine learning web app that predicts house prices in California based on multiple input features like median income, house age, number of rooms, and geographical location.
-
-Built using:
-- **Scikit-learn** for model training
-- **Streamlit** for the interactive web interface
-- **California Housing Dataset** from scikit-learn
+This project uses regression models to predict California housing prices using features from the [California Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html). It includes data preprocessing, training, evaluation, and an interactive Streamlit application.
 
 ---
 
-## 🚀 Demo
-> [Demo Screenshot](demo.png)
+## Features Used
+
+The following input features were used to predict the median house value:
+
+- `MedInc` (Median income in block)
+- `HouseAge` (Average age of houses in the block)
+- `AveRooms` (Average number of rooms per household)
+- `AveBedrms` (Average number of bedrooms per household)
+- `Population` (Block population)
+- `AveOccup` (Average occupancy)
+- `Latitude` (Location coordinate)
+- `Longitude` (Location coordinate)
 
 ---
 
-## 📦 Features
+## Models Trained
 
-- 🔢 Predict house prices based on 8 real-estate factors
-- 📊 Interactive web interface using Streamlit
-- 📁 Easy to run locally with minimal setup
-- 📈 Trained using Linear Regression
-- ✅ Scaled inputs for better model performance
-- 💾 Model and Scaler saved with `joblib`
+- Linear Regression
+- MLP Regressor (Multi-layer Perceptron Neural Network)
 
 ---
 
-## 📁 Dataset
+## Evaluation Metrics
 
-We use the **California Housing Dataset** available directly from `sklearn.datasets.fetch_california_housing()`.
+| Model            | MAE     | MSE      | RMSE     | R² Score |
+|------------------|---------|----------|----------|----------|
+| Linear Regression| ~       | ~        | ~        | ~        |
+| MLP Regressor    | ~       | ~        | ~        | ~        |
 
-This dataset contains:
-- Median income
-- House age
-- Average rooms & bedrooms
-- Population
-- Average occupants
-- Latitude & Longitude
-- Target: Median house value (in $100,000s)
+*Replace the `~` with actual results after training.*
 
 ---
 
-## 🛠️ Installation & Running Locally
+## Streamlit App
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/SarifSheikh17/california-house-price-predictor.git
-   cd California-House-Price-Predictor
+### Features:
+
+- Responsive slider inputs for all 8 features
+- Predictions from both models displayed side-by-side
+- Clean layout with sidebar information
+- Real-time results with model confidence
+
+---
+
+## Getting Started
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/SarifSheikh17/california-house-price-predictor.git
+cd california-house-price-predictor
+```
+
+### Step 2: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 3: Train the Models
+
+```bash
+python main.py
+```
+
+This will save the following files in the `models/` directory:
+
+- `linear_regression_model.pkl`
+- `mlp_regressor_model.pkl`
+- `scaler.pkl`
+- `selected_features.pkl`
+
+### Step 4: Run the Streamlit App
+
+```bash
+streamlit run streamlit_app.py
+```
+
+---
+
+## Project Structure
+
+```bash
+california-house-price-predictor/
+├── main.py
+├── streamlit_app.py
+├── models/
+│   ├── linear_regression_model.pkl
+│   ├── mlp_regressor_model.pkl
+│   ├── scaler.pkl
+│   └── selected_features.pkl
+├── requirements.txt
+├── README.md
+```
+
+---
+
+## Acknowledgements
+
+Dataset: `fetch_california_housing` from `sklearn.datasets`  
+Libraries: Scikit-learn, Matplotlib, Seaborn, Streamlit  
+Developed through hands-on practice with help from ChatGPT
+
+---
+
+## Author
+
+Sarif Sheikh  
+ML Intern at IIITDM Kancheepuram
